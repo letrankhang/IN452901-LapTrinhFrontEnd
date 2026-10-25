@@ -79,6 +79,12 @@
   --shadow-md: 0 4px 12px rgb(0 29 69 / 0.1);
   --shadow-lg: 0 12px 28px rgb(0 29 69 / 0.16);
 
+  --container-max: 72rem; /* 1152px */
+  --container-narrow: 44rem;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
   /* TODO(ch2-T1): Ghi chú breakpoint (var() KHÔNG dùng được trong @media, chỉ để tra cứu):
        --breakpoint-sm: 40rem;  (640px)   --breakpoint-lg: 64rem;  (1024px) */
   /* TODO(ch2-T1): color-scheme: light dark; */
