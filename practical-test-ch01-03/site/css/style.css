@@ -1,0 +1,193 @@
+/* Câu 1b: viết CSS tại đây */
+:root {
+  --primary-color: #006cb4;
+  --warning-color: #e40c24;
+  --space: 1rem;
+  --space-large: 2rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #222;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header,
+main,
+footer {
+  width: min(100% - var(--space-large), 1200px);
+  margin: 0 auto;
+}
+
+/* Đầu trang dùng Flexbox: logo trái, menu phải */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space) 0;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+main {
+  padding: var(--space-large) 0;
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: var(--space-large);
+}
+
+/* Form tìm kiếm */
+#search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#search-form label {
+  width: 100%;
+  font-weight: 700;
+}
+
+#keyword {
+  min-width: 0;
+  flex: 1;
+  padding: 0.65rem;
+  border: 1px solid #999;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.65rem 1.25rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Thông báo trạng thái */
+#status {
+  min-height: 1.5em;
+  margin: var(--space) 0;
+  font-weight: 500;
+}
+
+/* Danh sách card dùng Grid theo kiểu mobile-first: 1 cột; từ 768px 2 cột; từ 1200px 3 cột */
+.event-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space);
+}
+
+/* Card có viền, bo góc, khoảng đệm; ảnh không tràn card */
+.event-card {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: var(--space);
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hiệu ứng hover nổi bật cho card */
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+}
+
+.event-card img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.event-card h2 {
+  font-size: 1.2rem;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.event-card h2 a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.event-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.event-card p {
+  margin: 0.35rem 0;
+}
+
+/* Nhãn “Hết chỗ” chữ trắng nền màu cảnh báo */
+.sold-out {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  background-color: var(--warning-color);
+  border-radius: 0.25rem;
+  font-weight: 700;
+}
+
+footer {
+  padding: var(--space) 0;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin-top: var(--space-large);
+}
+
+@media (min-width: 768px) {
+  .event-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .event-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
